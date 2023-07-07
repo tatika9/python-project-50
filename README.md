@@ -1,2 +1,2 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/tatika9/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/tatika9/python-project-50/actions)
+[![Actions Status](https://github.com/tatika9/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/tatika9/python-project-50/actions)[![Maintainability](https://api.codeclimate.com/v1/badges/9423a60658e06674c797/maintainability)](https://codeclimate.com/github/tatika9/python-project-50/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/8e33bbf7f83d7d73d204/test_coverage)](https://codeclimate.com/github/tatika9/python-project-50/test_coverage)
