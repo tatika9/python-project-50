@@ -4,6 +4,8 @@ from gendiff.convert_file_to_python import convert
 def lower_bool(text):
     if type(text) == bool:
         return str(text).lower()
+    if text is None:
+        return 'null'
     return text
 
 
