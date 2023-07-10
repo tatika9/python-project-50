@@ -26,5 +26,4 @@ def generate_diff(file_path1, file_path2):
             continue
         result.append(f'  - {key}: {lower_bool(file1.get(key))}')
         result.append(f'  + {key}: {lower_bool(file2.get(key))}')
-    result = '{\n' + '\n'.join(result) + '\n}'
-    return result
+    return '{\n' + '\n'.join(result) + '\n}'
