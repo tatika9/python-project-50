@@ -95,7 +95,9 @@ def plain(diff):
             if is_nested(child):
                 lines.append(inner(child, acc + get_name(child) + '.'))
             elif get_action(child) == 'deleted':
-                lines.append(f'Property \'{acc + get_name(child)}\' was removed')
+                lines.append(
+                    f'Property \'{acc + get_name(child)}\' was removed'
+                )
             elif get_action(child) == 'added':
                 lines.append(
                     f'Property \'{acc + get_name(child)}\''
