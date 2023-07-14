@@ -34,16 +34,25 @@ def test_convert():
     assert convert(file) == expected
 
 
+def read(file):
+    with open(file, 'r') as f:
+        return f.read()
+
+
 def test_generate_diff_plane():
     file1_json = 'tests/fixtures/file1_plane.json'
     file2_json = 'tests/fixtures/file2_plane.json'
     file1_yaml = 'tests/fixtures/file1_plane.yaml'
     file2_yaml = 'tests/fixtures/file2_plane.yaml'
-    with open('tests/fixtures/result_plane.txt', 'r') as expected:
-        expected = expected.read()
 
-    assert generate_diff(file1_json, file2_json) == expected
-    assert generate_diff(file1_yaml, file2_yaml) == expected
+    expected_stylish = read('tests/fixtures/result_plane_stylish.txt')
+    expected_plain = read('tests/fixtures/result_plane_plain.txt')
+
+    assert generate_diff(file1_json, file2_json) == expected_stylish
+    assert generate_diff(file1_yaml, file2_yaml) == expected_stylish
+    assert generate_diff(file1_yaml, file2_yaml, 'stylish') == expected_stylish
+    assert generate_diff(file1_json, file2_json, 'plain') == expected_plain
+    assert generate_diff(file1_yaml, file2_yaml, 'plain') == expected_plain
 
 
 def test_generate_diff():
@@ -51,8 +60,12 @@ def test_generate_diff():
     file2_json = 'tests/fixtures/file2.json'
     file1_yaml = 'tests/fixtures/file1.yaml'
     file2_yaml = 'tests/fixtures/file2.yaml'
-    with open('tests/fixtures/result.txt', 'r') as expected:
-        expected = expected.read()
 
-    assert generate_diff(file1_json, file2_json) == expected
-    assert generate_diff(file1_yaml, file2_yaml) == expected
+    expected_stylish = read('tests/fixtures/result_stylish.txt')
+    expected_plain = read('tests/fixtures/result_plain.txt')
+
+    assert generate_diff(file1_json, file2_json) == expected_stylish
+    assert generate_diff(file1_yaml, file2_yaml) == expected_stylish
+    assert generate_diff(file1_yaml, file2_yaml, 'stylish') == expected_stylish
+    assert generate_diff(file1_json, file2_json, 'plain') == expected_plain
+    assert generate_diff(file1_yaml, file2_yaml, 'plain') == expected_plain
