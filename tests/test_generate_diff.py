@@ -1,4 +1,37 @@
 from gendiff.generate_diff import generate_diff
+from gendiff.convert_file_to_python import convert
+
+
+def test_convert():
+    file = 'tests/fixtures/file1.json'
+    expected = {
+        'common': {
+            'setting1': 'Value 1',
+            'setting2': 200,
+            'setting3': True,
+            'setting6': {
+                'key': 'value',
+                'doge': {
+                    'wow': ''
+                }
+            }
+        },
+        'group1': {
+            'baz': 'bas',
+            'foo': 'bar',
+            'nest': {
+                'key': 'value'
+            }
+        },
+        'group2': {
+            'abc': 12345,
+            'deep': {
+                'id': 45
+            }
+        }
+    }
+
+    assert convert(file) == expected
 
 
 def test_generate_diff_plane():
