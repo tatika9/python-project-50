@@ -1,4 +1,3 @@
-
 from gendiff.diff_tree import mk_plain, mk_nested
 
 

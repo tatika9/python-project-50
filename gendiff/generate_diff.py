@@ -1,6 +1,14 @@
 from gendiff.convert_file_to_python import convert
 from gendiff.parser_diff import get_diff
-from gendiff.format import get_format
+from gendiff.formatters.stylish import stylish
+from gendiff.formatters.plain import plain
+
+
+def get_format(diff, format):
+    if format == 'stylish':
+        return stylish(diff)
+    if format == 'plain':
+        return plain(diff)
 
 
 def generate_diff(file_path1, file_path2, format='stylish'):
