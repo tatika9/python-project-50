@@ -5,7 +5,7 @@ from gendiff.formatters.value_to_str import value_to_str
 
 def format_value(value):
     if isinstance(value, (dict, list, tuple, set)):
-        return ' [complex value]'
+        return '[complex value]'
     if isinstance(value, str):
         value = f"'{value}'"
     return value_to_str(value)
@@ -25,14 +25,14 @@ def plain(diff):
             elif get_status(child) == 'added':
                 lines.append(
                     f'Property \'{acc + get_name(child)}\''
-                    f' was added with value:'
+                    f' was added with value: '
                     f'{format_value(get_value(child))}'
                 )
             elif get_status(child) == 'changed':
                 lines.append(
                     f'Property \'{acc + get_name(child)}\' was updated.'
-                    f' From{format_value(get_value(child)["old"])}'
-                    f' to{format_value(get_value(child)["new"])}'
+                    f' From {format_value(get_value(child)["old"])}'
+                    f' to {format_value(get_value(child)["new"])}'
                 )
             elif get_status(child) == 'unchanged':
                 continue
