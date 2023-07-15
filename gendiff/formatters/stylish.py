@@ -41,15 +41,15 @@ def get_stylish(diff, replacer=' ', indent=4):
                 lines.append(f'{prefix}{name}: {value}')
             elif status == 'changed':
                 prefix = current_indent + FILLER["deleted"]
-                value = format_value(get_value(child)["old"], level+1)
+                value = format_value(get_value(child)["old"], level + 1)
                 lines.append(f'{prefix}{name}: {value}')
 
                 prefix = current_indent + FILLER["added"]
-                value = format_value(get_value(child)["new"], level+1)
+                value = format_value(get_value(child)["new"], level + 1)
                 lines.append(f'{prefix}{name}: {value}')
             else:
                 prefix = current_indent + FILLER[status]
-                value = format_value(get_value(child), level+1)
+                value = format_value(get_value(child), level + 1)
                 lines.append(f'{prefix}{name}: {value}')
 
         current_indent = (level - 1) * indent * replacer
