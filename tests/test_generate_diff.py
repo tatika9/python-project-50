@@ -1,6 +1,7 @@
+import json
+
 from gendiff.generate_diff import generate_diff
 from gendiff.conversion import convert_to_dict
-import json
 
 
 def test_convert():

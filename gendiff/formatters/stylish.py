@@ -1,4 +1,5 @@
 import itertools
+
 from gendiff.diff_tree import get_status, get_name
 from gendiff.diff_tree import get_value, get_children
 from gendiff.formatters.value_to_str import value_to_str
