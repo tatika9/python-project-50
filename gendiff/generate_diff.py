@@ -2,6 +2,7 @@ from gendiff.convert_file_to_python import convert
 from gendiff.parser_diff import get_diff
 from gendiff.formatters.stylish import stylish
 from gendiff.formatters.plain import plain
+from gendiff.formatters.json import get_json
 
 
 def get_format(diff, format):
@@ -9,6 +10,8 @@ def get_format(diff, format):
         return stylish(diff)
     if format == 'plain':
         return plain(diff)
+    if format == 'json':
+        return get_json(diff)
 
 
 def generate_diff(file_path1, file_path2, format='stylish'):
