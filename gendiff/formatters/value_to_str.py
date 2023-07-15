@@ -3,4 +3,4 @@ def value_to_str(text):
         return str(text).lower()
     if text is None:
         return 'null'
-    return str(text)
+    return text
