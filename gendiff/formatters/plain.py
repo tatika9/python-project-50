@@ -11,7 +11,7 @@ def format_value(value):
     return value_to_str(value)
 
 
-def plain(diff):
+def get_plain(diff):
     def inner(diff, acc):
         children = get_children(diff)
         lines = []

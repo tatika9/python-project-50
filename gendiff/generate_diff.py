@@ -1,25 +1,11 @@
-from gendiff.convert_file_to_python import convert
-from gendiff.parser_diff import get_diff
-from gendiff.formatters.stylish import stylish
-from gendiff.formatters.plain import plain
-from gendiff.formatters.json import get_json
-
-
-def get_format(diff, format):
-    if format == 'stylish':
-        return stylish(diff)
-    elif format == 'plain':
-        return plain(diff)
-    elif format == 'json':
-        return get_json(diff)
-    else:
-        return (f'{format} is an invalid format. '
-                f'Possible options: stylish, plain, json')
+from gendiff.conversion import convert_to_dict
+from gendiff.diff_parser import get_diff
+from gendiff.formatters.format import get_format
 
 
 def generate_diff(file_path1, file_path2, format='stylish'):
-    dict1 = convert(file_path1)
-    dict2 = convert(file_path2)
+    dict1 = convert_to_dict(file_path1)
+    dict2 = convert_to_dict(file_path2)
     diff = get_diff(dict1, dict2)
 
     return get_format(diff, format)

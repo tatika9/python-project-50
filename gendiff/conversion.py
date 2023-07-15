@@ -2,7 +2,7 @@ import json
 import yaml
 
 
-def convert(file_path):
+def convert_to_dict(file_path):
     if file_path.endswith('.json'):
         with open(file_path, 'r') as file:
             file = dict(json.load(file))
