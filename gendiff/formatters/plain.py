@@ -1,4 +1,4 @@
-from gendiff.diff_tree import is_nested, get_action, get_name
+from gendiff.diff_tree import is_nested, get_status, get_name
 from gendiff.diff_tree import get_value, get_children
 from gendiff.formatters.value_to_str import value_to_str
 
@@ -18,23 +18,23 @@ def plain(diff):
         for child in children:
             if is_nested(child):
                 lines.append(inner(child, acc + get_name(child) + '.'))
-            elif get_action(child) == 'deleted':
+            elif get_status(child) == 'deleted':
                 lines.append(
                     f'Property \'{acc + get_name(child)}\' was removed'
                 )
-            elif get_action(child) == 'added':
+            elif get_status(child) == 'added':
                 lines.append(
                     f'Property \'{acc + get_name(child)}\''
                     f' was added with value:'
-                    f'{format_value(get_value(child)["new"])}'
+                    f'{format_value(get_value(child))}'
                 )
-            elif get_action(child) == 'changed':
+            elif get_status(child) == 'changed':
                 lines.append(
                     f'Property \'{acc + get_name(child)}\' was updated.'
                     f' From{format_value(get_value(child)["old"])}'
                     f' to{format_value(get_value(child)["new"])}'
                 )
-            elif get_action(child) == 'unchanged':
+            elif get_status(child) == 'unchanged':
                 continue
         return '\n'.join(lines)
     return inner(diff, '')

@@ -1,26 +1,21 @@
 def mk_nested(name, children=[]):
     return {
         'name': name,
-        'type': 'nested',
+        'status': 'nested',
         'children': children,
     }
 
 
-def mk_plain(name, action, value={'old': None, 'new': None}):
+def mk_plain(name, status, value):
     return {
         'name': name,
-        'type': 'plain',
-        'action': action,
+        'status': status,
         'value': value,
     }
 
 
-def is_plain(node):
-    return node['type'] == 'plain'
-
-
 def is_nested(node):
-    return node['type'] == 'nested'
+    return node['status'] == 'nested'
 
 
 def get_name(node):
@@ -31,8 +26,8 @@ def get_value(node):
     return node['value']
 
 
-def get_action(node):
-    return node['action']
+def get_status(node):
+    return node['status']
 
 
 def get_children(node):
