@@ -13,28 +13,27 @@ def format_value(value):
 
 def get_plain(diff):
     def inner(diff, acc):
-        children = get_children(diff)
         lines = []
-        for child in children:
+        for child in get_children(diff):
+            status = get_status(child)
+            name = get_name(child)
             if is_nested(child):
-                lines.append(inner(child, acc + get_name(child) + '.'))
-            elif get_status(child) == 'deleted':
+                lines.append(inner(child, acc + name + '.'))
+            elif status == 'deleted':
+                lines.append(f'Property \'{acc + name}\' was removed')
+            elif status == 'added':
                 lines.append(
-                    f'Property \'{acc + get_name(child)}\' was removed'
-                )
-            elif get_status(child) == 'added':
-                lines.append(
-                    f'Property \'{acc + get_name(child)}\''
+                    f'Property \'{acc + name}\''
                     f' was added with value: '
                     f'{format_value(get_value(child))}'
                 )
-            elif get_status(child) == 'changed':
+            elif status == 'changed':
                 lines.append(
-                    f'Property \'{acc + get_name(child)}\' was updated.'
+                    f'Property \'{acc + name}\' was updated.'
                     f' From {format_value(get_value(child)["old"])}'
                     f' to {format_value(get_value(child)["new"])}'
                 )
-            elif get_status(child) == 'unchanged':
+            elif status == 'unchanged':
                 continue
         return '\n'.join(lines)
     return inner(diff, '')
