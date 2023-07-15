@@ -8,10 +8,13 @@ from gendiff.formatters.json import get_json
 def get_format(diff, format):
     if format == 'stylish':
         return stylish(diff)
-    if format == 'plain':
+    elif format == 'plain':
         return plain(diff)
-    if format == 'json':
+    elif format == 'json':
         return get_json(diff)
+    else:
+        return (f'{format} is an invalid format. '
+                f'Possible options: stylish, plain, json')
 
 
 def generate_diff(file_path1, file_path2, format='stylish'):
