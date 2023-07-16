@@ -15,9 +15,11 @@
 ```bash
 $ git clone git@github.com:tatika9/python-project-50.git
 ```
-2. Из корня проекта выполняем команду для установки пакета в пользовательское окружение:
+2. Из корня проекта выполняем команды для установки пакета в пользовательское окружение:
 ```bash
-$ make install
+$ potry install
+$ poetry build
+$ python3 -m pip install --user dist/*.whl
 ```
 ## Использование
 Из командной строки:
