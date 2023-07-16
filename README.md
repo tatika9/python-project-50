@@ -24,12 +24,13 @@ $ make install
 Из командной строки:
 * `$ gendiff -h` вывод справки по программе
 * `$ gendiff file1.json file2.json` вывод различий в формате `stylish` (используется по умолчанию)
-* `$ gendiff file1.json file2.yaml -f  plain` вывод различий в формате `plain`
+* `$ gendiff file1.json file2.yaml -f plain` вывод различий в формате `plain`
 * `$ gendiff file1.yaml file2.yaml -f json` вывод различий в формате `json`
 
 Как библиотеку:
 ```python
 from gendiff import generate_diff
+
 
 diff = generate_diff(file1, file2)
 print(diff)
