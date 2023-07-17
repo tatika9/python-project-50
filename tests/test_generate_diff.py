@@ -5,7 +5,7 @@ from gendiff.conversion import convert_to_dict
 
 
 def test_convert():
-    file = 'tests/fixtures/file1.json'
+    file = 'tests/fixtures/file1.JSON'
     expected = {
         'common': {
             'setting1': 'Value 1',
@@ -68,9 +68,9 @@ def test_generate_diff_plane():
 
 
 def test_generate_diff_nested():
-    file1_json = 'tests/fixtures/file1.json'
+    file1_json = 'tests/fixtures/file1.JSON'
     file2_json = 'tests/fixtures/file2.json'
-    file1_yaml = 'tests/fixtures/file1.yaml'
+    file1_yaml = 'tests/fixtures/file1.yml'
     file2_yaml = 'tests/fixtures/file2.yaml'
 
     expected_stylish = read('tests/fixtures/result_stylish.txt')
