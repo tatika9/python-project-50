@@ -1,4 +1,4 @@
-## Hexlet tests and linter status:
+## «Вычислитель отличий»
 [![Actions Status](https://github.com/tatika9/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/tatika9/python-project-50/actions) ![Python CI](https://github.com/tatika9/python-project-50/actions/workflows/pyci.yml/badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/8e33bbf7f83d7d73d204/maintainability)](https://codeclimate.com/github/tatika9/python-project-50/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/8e33bbf7f83d7d73d204/test_coverage)](https://codeclimate.com/github/tatika9/python-project-50/test_coverage)
 
 ## Описание
@@ -17,7 +17,7 @@ $ git clone git@github.com:tatika9/python-project-50.git
 ```
 2. Из корня проекта выполняем команды для установки пакета в пользовательское окружение:
 ```bash
-$ potry install
+$ poetry install
 $ poetry build
 $ python3 -m pip install --user dist/*.whl
 ```
