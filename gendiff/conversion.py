@@ -1,12 +1,21 @@
 import json
 import yaml
+import sys
 
 
 def convert_to_dict(file_path):
-    if file_path.endswith('.json'):
+    if file_path.lower().endswith('.json'):
         with open(file_path, 'r') as file:
             file = dict(json.load(file))
-    if file_path.endswith('.yaml') or file_path.endswith('.yml'):
+    elif file_path.lower().endswith(('.yaml', '.yml')):
         with open(file_path, 'r') as file:
             file = yaml.load(file, Loader=yaml.SafeLoader)
-    return file
+
+    try:
+        return file
+    except UnboundLocalError:
+        print(
+            f'{file_path} has the wrong extension. '
+            f'Possible file extensions: yml, yaml, json'
+        )
+        sys.exit()
