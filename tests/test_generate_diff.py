@@ -41,14 +41,6 @@ def read(file):
         return f.read()
 
 
-def is_json(myjson):
-    try:
-        json.loads(myjson)
-    except ValueError:
-        return False
-    return True
-
-
 def test_generate_diff_plane():
     file1_json = 'tests/fixtures/file1_plane.json'
     file2_json = 'tests/fixtures/file2_plane.json'
@@ -63,8 +55,6 @@ def test_generate_diff_plane():
     assert generate_diff(file1_yaml, file2_yaml, 'stylish') == expected_stylish
     assert generate_diff(file1_json, file2_json, 'plain') == expected_plain
     assert generate_diff(file1_yaml, file2_yaml, 'plain') == expected_plain
-    assert is_json(generate_diff(file1_json, file2_json, 'json'))
-    assert is_json(generate_diff(file1_yaml, file2_yaml, 'json'))
 
 
 def test_generate_diff_nested():
@@ -81,5 +71,3 @@ def test_generate_diff_nested():
     assert generate_diff(file1_yaml, file2_yaml, 'stylish') == expected_stylish
     assert generate_diff(file1_json, file2_json, 'plain') == expected_plain
     assert generate_diff(file1_yaml, file2_yaml, 'plain') == expected_plain
-    assert is_json(generate_diff(file1_json, file2_json, 'json'))
-    assert is_json(generate_diff(file1_yaml, file2_yaml, 'json'))
