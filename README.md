@@ -24,7 +24,8 @@ $ python3 -m pip install --user dist/*.whl
 ## Использование
 Из командной строки:
 * `$ gendiff -h` вывод справки по программе
-* `$ gendiff file1.json file2.json` вывод различий в формате `stylish` (используется по умолчанию)
+* `$ gendiff -V` вывод версии пакета
+* `$ gendiff file1.json file2.json` вывод различий в формате `stylish` (по умолчанию)
 * `$ gendiff file1.json file2.yaml -f plain` вывод различий в формате `plain`
 * `$ gendiff file1.yaml file2.yaml -f json` вывод различий в формате `json`
 
@@ -37,4 +38,4 @@ diff = generate_diff(file1, file2)
 print(diff)
 ```
 ## Пример
-[![asciicast](https://asciinema.org/a/zcz7CAsI1IMxVXiF1M9eKiHZN.svg)](https://asciinema.org/a/zcz7CAsI1IMxVXiF1M9eKiHZN)
+[![asciicast](https://asciinema.org/a/GhuNuyHVr9kxkSmmiiMZK303o.svg)](https://asciinema.org/a/GhuNuyHVr9kxkSmmiiMZK303o)
