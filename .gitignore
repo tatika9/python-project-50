@@ -1,7 +1,7 @@
-.venv/
-.vscode/
+/.venv
+/.vscode
 __pycache__
-.pytest_cache/
-.python-version
-dist/
-temp/
+/.pytest_cache/
+/.python-version
+/dist/
+/temp/
